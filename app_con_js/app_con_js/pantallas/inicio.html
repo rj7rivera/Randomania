@@ -1,0 +1,107 @@
+<!DOCTYPE >
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inicio</title>
+<link rel="stylesheet" href="../css/estilo-efecto-overlay.css" type="text/css" />
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    
+
+</head>
+
+<body>
+     <div style="width:100%; position: absolute; top: 60px; ">
+        <a style="float: right; background: red; padding: 10px; color: #FFF; text-decoration: none; border-radius: 7px; margin-right: 50px;"  href="#" onclick="cerrarSesion()">Cerrar sesión</a>
+    </div>
+    <div class="galeria">
+        <h1>Bienvenido a Randomania</h1>
+        <h1>Has ingresado con el correo:[ <strong><span id="outputUsername"></span></strong> ]</h1>
+        <div class="linea"></div>
+        <div class="contenedor-imagenes">
+            <div class="imagen">
+                <img src="../img/img(1).jpeg" alt="" />
+                <div class="overlay">
+                    <a href="convertidor_de_Moneda.html">Convertidor de Moneda</a>
+                </div>
+            </div>
+
+            <div class="imagen">
+                <img src="../img/img(2).jpeg" alt="" />
+                <div class="overlay">
+                    <a href="mensajeria_encriptada.html">Mensajeria Encriptada</a>
+                </div>
+            </div>
+
+            <div class="imagen">
+                <img src="../img/img(3).jpeg" alt="" />
+                <div class="overlay">
+                    <a href="rick_morty.html">Buscador de Rick y Morty</a>
+                </div>
+            </div>
+
+            <div class="imagen">
+                <img src="../img/img(4).jpeg" alt="" />
+                <div class="overlay">
+                    <a href="memoria.html">Reto de Memoria</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="modalCerrarSesion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Cerrar Sesión</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ¿Estás seguro de que quieres cerrar la sesión? Se eliminará toda la información y tendrás que iniciar sesión de nuevo.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-danger" onclick="aceptarCerrarSesion()">Aceptar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  <script>
+    // Obtén el elemento span donde se mostrará el nombre de usuario
+    var outputUsernameElement = document.getElementById('outputUsername');
+
+    // Obtén el nombre de usuario del localStorage
+    var username = localStorage.getItem('username');
+
+    // Verifica si el nombre de usuario está presente en el localStorage
+    if (username) {
+      // Muestra el nombre de usuario en la pantalla
+      outputUsernameElement.textContent = username;
+    } else {
+      // Si no hay nombre de usuario, muestra un mensaje predeterminado
+      outputUsernameElement.textContent = 'No username found';
+    }
+  </script>
+
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+        // Función para abrir el modal
+        function cerrarSesion() {
+            $('#modalCerrarSesion').modal('show');
+        }
+
+        // Función para aceptar y cerrar sesión
+        function aceptarCerrarSesion() {
+            // Eliminar la información del Local Storage
+            localStorage.clear();
+            // Redirigir al formulario de inicio de sesión
+            window.location.href = 'login-forms.html';
+        }
+    </script>
+</body> 
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE >
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type"/>
+<title>login</title>
+<link rel="stylesheet" type="text/css" href="../css/estilo-login-forms.css" />
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+</head>
+
+<body>
+    <div class="wrapper">
+        <h1>Iniciar Sesion</h1>
+        <form id="loginForm" >
+            <input type="email" id="username" placeholder="Correo">
+            <input type="password" id="contraseña" placeholder="Contraseña">
+            <input type="submit" value="Acceder">
+        </form>
+        <div class="bottom-text">
+            <input type="checkbox" name="remenber" checked>no tienes cuenta
+            <a href="creacion_de_usuario.html">crear una cuenta??</a>
+        </div>
+
+
+       
+
+        <div class="sociales">
+          
+        </div>
+
+        <div id="overlay-area"></div>
+    </div>
+
+
+
+
+<!-- Tu código anterior para el formulario de inicio de sesión permanece igual -->
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        var username = document.getElementById('username').value;
+        var contrasena = document.getElementById('contraseña').value;
+
+        // Obtén el usuario almacenado en localStorage
+        var storedUser = localStorage.getItem('usuario');
+
+        if (storedUser) {
+            // Parsea la cadena JSON almacenada en localStorage
+            var storedUserInfo = JSON.parse(storedUser);
+
+            // Comprueba si el usuario y la contraseña coinciden
+            if (username === storedUserInfo.correo && contrasena === storedUserInfo.contrasena) {
+                alert('¡Inicio de sesión correcto! Redirigir o realizar otras acciones.');
+                localStorage.setItem('username', username);
+                window.location.href = 'inicio.html';
+            } else {
+                alert('Nombre de usuario o contraseña incorrectos');
+            }
+        } else {
+            alert('No hay información de usuario almacenada');
+        }
+    });
+</script>
+
+
+</body>
+</html>
+
+

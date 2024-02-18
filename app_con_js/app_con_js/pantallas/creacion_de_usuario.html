@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Creación de Usuario</title>
+
+    <!-- Agregar el enlace a Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="container mt-5">
+    <div class="col-md-6 offset-md-3">
+        <h2 class="mb-4">Crear Usuario</h2>
+        <form id="userForm">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" class="form-control" id="nombre" required>
+            </div>
+
+            <div class="form-group">
+                <label for="correo">Correo:</label>
+                <input type="email" class="form-control" id="correo" required>
+            </div>
+
+            <div class="form-group">
+                <label for="contrasena">Contraseña:</label>
+                <input type="password" class="form-control" id="contrasena" required>
+            </div>
+
+            <button type="button" class="btn btn-primary" onclick="crearUsuario()">Crear Usuario</button>
+        </form>
+    </div>
+
+    <!-- Agregar el enlace a Bootstrap JS y Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script>
+        function crearUsuario() {
+            var nombre = document.getElementById('nombre').value;
+            var correo = document.getElementById('correo').value;
+            var contrasena = document.getElementById('contrasena').value;
+
+            var usuario = {
+                nombre: nombre,
+                correo: correo,
+                contrasena: contrasena
+            };
+
+            localStorage.setItem('usuario', JSON.stringify(usuario));
+            window.location.href = 'login-forms.html';
+        }
+    </script>
+</body>
+</html>

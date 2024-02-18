@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rick y morty</title>
+    <link rel="stylesheet" href="../css/styles_rick.css">
+</head>
+<body>
+        <div style="width:100%; position: absolute; top: 30px; "><a style="float: right; background: #0077c0; padding: 10px; color: #FFF; text-decoration: none; border-radius: 7px; margin-right: 50px;"  href="inicio.html">Inicio</a></div>
+
+    <h1>Buscador de rick</h1>
+
+    <div id="filters">
+        <input type="text" id="name-filter" placeholder="Filtrado por nombre" >
+        <select id="status-filter">
+            <option value="">Filtrar por estado</option>
+            <option value="alive">Vivo</option>
+            <option value="dead">Muerto</option>
+            <option value="unknown">Desconocido</option>
+        </select>
+    </div>
+
+    <div class="container">
+        <div id="characters">
+            <!-- Los personajes -->
+        </div>
+    </div>
+    <script src="../js/script_rick.js"></script>
+</body>
+</html>
